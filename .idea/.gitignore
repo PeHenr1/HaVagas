@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local configuration
+local.properties
+
+# IntelliJ / Android Studio
+.idea/*
+!.idea/codeStyles/
+!.idea/runConfigurations/
+*.iml
+
+# Log files
+*.log
+
+# Cache
+.cxx/
+
+# Keystore files (se tiver chaves locais)
+*.jks
+*.keystore
+
+# Outros arquivos temporários
+captures/
+.externalNativeBuild/
