@@ -98,12 +98,51 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.buttonSalvar).setOnClickListener {
-            Toast.makeText(this, "Formulário salvo!", Toast.LENGTH_SHORT).show()
+            if (validarFormulario()) mostrarFormulario()
         }
 
         findViewById<Button>(R.id.buttonLimpar).setOnClickListener {
             limparFormulario()
         }
+    }
+
+    private fun validarFormulario(): Boolean {
+        val nome = findViewById<EditText>(R.id.editTextNome).text.toString().trim()
+        val email = findViewById<EditText>(R.id.editTextEmail).text.toString().trim()
+        val telefone = findViewById<EditText>(R.id.editTextTelefone).text.toString().trim()
+        val celular = editTextCelular.text.toString().trim()
+        val dataNascimento = findViewById<EditText>(R.id.editTextDataNascimento).text.toString().trim()
+        val ano = editTextAno.text.toString().trim()
+
+        if (nome.isEmpty()) {
+            showToast("Preencha o nome corretamente.")
+            return false
+        }
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            showToast("Preencha um e-mail válido.")
+            return false
+        }
+        if (telefone.isEmpty() || !telefone.matches("\\d{8,11}".toRegex())) {
+            showToast("Preencha um telefone válido (8 a 11 dígitos).")
+            return false
+        }
+        if (checkBoxCelular.isChecked && (celular.isEmpty() || !celular.matches("\\d{8,11}".toRegex()))) {
+            showToast("Preencha um celular válido (8 a 11 dígitos).")
+            return false
+        }
+        if (dataNascimento.isEmpty()) {
+            showToast("Preencha a data de nascimento.")
+            return false
+        }
+        if (editTextAno.visibility == View.VISIBLE && (ano.isEmpty() || !ano.matches("\\d{4}".toRegex()))) {
+            showToast("Preencha o ano de conclusão corretamente (4 dígitos).")
+            return false
+        }
+        return true
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun mostrarFormulario() {
