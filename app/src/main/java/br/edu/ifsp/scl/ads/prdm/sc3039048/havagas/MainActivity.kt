@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,27 +55,16 @@ class MainActivity : AppCompatActivity() {
                 when (position) {
                     0, 1 -> {
                         editTextAno.visibility = View.VISIBLE
-                        editTextInstituicao.visibility = View.GONE
-                        editTextTitulo.visibility = View.GONE
-                        editTextOrientador.visibility = View.GONE
                     }
                     2, 3 -> {
                         editTextAno.visibility = View.VISIBLE
                         editTextInstituicao.visibility = View.VISIBLE
-                        editTextTitulo.visibility = View.GONE
-                        editTextOrientador.visibility = View.GONE
                     }
                     4, 5 -> {
                         editTextAno.visibility = View.VISIBLE
                         editTextInstituicao.visibility = View.VISIBLE
                         editTextTitulo.visibility = View.VISIBLE
                         editTextOrientador.visibility = View.VISIBLE
-                    }
-                    else -> {
-                        editTextAno.visibility = View.GONE
-                        editTextInstituicao.visibility = View.GONE
-                        editTextTitulo.visibility = View.GONE
-                        editTextOrientador.visibility = View.GONE
                     }
                 }
             }
@@ -134,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             showToast("Preencha a data de nascimento.")
             return false
         }
-        if (editTextAno.visibility == View.VISIBLE && (ano.isEmpty() || !ano.matches("\\d{4}".toRegex()))) {
+        if (editTextAno.isVisible && (ano.isEmpty() || !ano.matches("\\d{4}".toRegex()))) {
             showToast("Preencha o ano de conclusão corretamente (4 dígitos).")
             return false
         }
@@ -168,10 +158,10 @@ class MainActivity : AppCompatActivity() {
         mensagem.append("Data de Nascimento: $dataNascimento\n")
         mensagem.append("Sexo: ${if (sexo == "Outro") sexoOutro else sexo}\n")
         mensagem.append("Formação Acadêmica: $formacao\n")
-        if (editTextAno.visibility == View.VISIBLE) mensagem.append("Ano de Conclusão: $ano\n")
-        if (editTextInstituicao.visibility == View.VISIBLE) mensagem.append("Instituição: $instituicao\n")
-        if (editTextTitulo.visibility == View.VISIBLE) mensagem.append("Título Monografia: $titulo\n")
-        if (editTextOrientador.visibility == View.VISIBLE) mensagem.append("Orientador: $orientador\n")
+        if (editTextAno.isVisible) mensagem.append("Ano de Conclusão: $ano\n")
+        if (editTextInstituicao.isVisible) mensagem.append("Instituição: $instituicao\n")
+        if (editTextTitulo.isVisible) mensagem.append("Título Monografia: $titulo\n")
+        if (editTextOrientador.isVisible) mensagem.append("Orientador: $orientador\n")
         mensagem.append("Vagas de Interesse: $vagas\n")
 
         AlertDialog.Builder(this)
