@@ -52,19 +52,19 @@ class MainActivity : AppCompatActivity() {
                 editTextOrientador.visibility = View.GONE
 
                 when (position) {
-                    0, 1 -> { // Fundamental e Médio
+                    0, 1 -> {
                         editTextAno.visibility = View.VISIBLE
                         editTextInstituicao.visibility = View.GONE
                         editTextTitulo.visibility = View.GONE
                         editTextOrientador.visibility = View.GONE
                     }
-                    2, 3 -> { // Graduação e Especialização
+                    2, 3 -> {
                         editTextAno.visibility = View.VISIBLE
                         editTextInstituicao.visibility = View.VISIBLE
                         editTextTitulo.visibility = View.GONE
                         editTextOrientador.visibility = View.GONE
                     }
-                    4, 5 -> { // Mestrado e Doutorado
+                    4, 5 -> {
                         editTextAno.visibility = View.VISIBLE
                         editTextInstituicao.visibility = View.VISIBLE
                         editTextTitulo.visibility = View.VISIBLE
