@@ -16,6 +16,8 @@
     <string name="salvar">Salvar</string>
     <string name="limpar">Limpar</string>
     <string name="outro_sexo">Digite aqui</string>
+    <string name="formacao_academica">Formação Acadêmica</string>
+    <string name="sexo">Sexo</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
