@@ -1,8 +1,10 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039048.havagas
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
