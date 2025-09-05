@@ -31,12 +31,24 @@ class MainActivity : AppCompatActivity() {
         spinnerSexo = findViewById(R.id.spinnerSexo)
         editTextSexoOutro = findViewById(R.id.editTextSexoOutro)
 
+        editTextCelular.visibility = View.GONE
+        editTextAno.visibility = View.GONE
+        editTextInstituicao.visibility = View.GONE
+        editTextTitulo.visibility = View.GONE
+        editTextOrientador.visibility = View.GONE
+        editTextSexoOutro.visibility = View.GONE
+
         checkBoxCelular.setOnCheckedChangeListener { _, isChecked ->
             editTextCelular.visibility = if (isChecked) View.VISIBLE else View.GONE
         }
 
         spinnerFormacao.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                editTextAno.visibility = View.GONE
+                editTextInstituicao.visibility = View.GONE
+                editTextTitulo.visibility = View.GONE
+                editTextOrientador.visibility = View.GONE
+
                 when (position) {
                     0, 1 -> { // Fundamental e Médio
                         editTextAno.visibility = View.VISIBLE
@@ -75,8 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         spinnerSexo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                // Corrigido: último item é "Outro" (posição 4)
-                editTextSexoOutro.visibility = if (position == 4) View.VISIBLE else View.GONE
+                editTextSexoOutro.visibility = if (position == parent.count - 1) View.VISIBLE else View.GONE
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -151,5 +162,11 @@ class MainActivity : AppCompatActivity() {
 
         spinnerSexo.setSelection(0)
         spinnerFormacao.setSelection(0)
+
+        editTextAno.visibility = View.GONE
+        editTextInstituicao.visibility = View.GONE
+        editTextTitulo.visibility = View.GONE
+        editTextOrientador.visibility = View.GONE
+        editTextSexoOutro.visibility = View.GONE
     }
 }
