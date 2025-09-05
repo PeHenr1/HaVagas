@@ -18,6 +18,7 @@
     <string name="outro_sexo">Digite aqui</string>
     <string name="formacao_academica">Formação Acadêmica</string>
     <string name="sexo">Sexo</string>
+    <string name="havagas">HaVagas!</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
