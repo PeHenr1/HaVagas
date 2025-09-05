@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Formulário</string>
+    <string name="app_name">HaVagas</string>
 
     <string name="nome">Nome completo</string>
     <string name="e_mail">E-mail</string>
